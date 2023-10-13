@@ -1,0 +1,23 @@
+{
+  "name": "Calendar",
+  "menus": [
+    {
+      "name_menu_fr": "Calendrier",
+      "name_menu_en": "Calendar",
+      "icon_menu": "fas fa-calendar-days",
+      "url_menu": "calendar/manage"
+    }
+  ],
+  "description": [
+    {
+      "fr": "Afficher des événements à venir",
+      "en": "View upcoming events"
+    }
+  ],
+
+  "version": "0.0.1",
+  "author": "Z0mb",
+
+  "isGame": false,
+  "isCore": false
+}
