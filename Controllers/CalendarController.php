@@ -8,7 +8,6 @@ use CMW\Manager\Flash\Alert;
 use CMW\Manager\Flash\Flash;
 use CMW\Manager\Lang\LangManager;
 use CMW\Manager\Package\AbstractController;
-use CMW\Manager\Requests\Request;
 use CMW\Manager\Router\Link;
 use CMW\Manager\Views\View;
 use CMW\Model\Calendar\CalendarModel;
@@ -30,8 +29,6 @@ class CalendarController extends AbstractController
     public function calendarManage(): void
     {
         UsersController::redirectIfNotHavePermissions("core.dashboard", "calendar.show");
-
-        //$faqList = faqModel::getInstance()->getFaqs();
 
         View::createAdminView('Calendar', 'manage')
             ->addScriptBefore("App/Package/Calendar/Views/Resources/fullcalendar.js")
@@ -60,7 +57,6 @@ class CalendarController extends AbstractController
     {
 
         $view = new View('Calendar', 'main');
-        //$view->addVariableList(["faq" => $faq, "faqList" => $faqList]);
         $view->view();
     }
 }

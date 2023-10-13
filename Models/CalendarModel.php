@@ -3,7 +3,6 @@
 namespace CMW\Model\Calendar;
 
 use CMW\Entity\Calendar\CalendarEntity;
-use CMW\Entity\Faq\FaqEntity;
 use CMW\Manager\Database\DatabaseManager;
 
 use CMW\Manager\Package\AbstractModel;
@@ -18,7 +17,7 @@ use CMW\Model\Users\UsersModel;
 class CalendarModel extends AbstractModel
 {
     /**
-     * @return FaqEntity[]
+     * @return CalendarEntity[]
      */
     public function getEvents(): array
     {
