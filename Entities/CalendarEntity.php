@@ -2,6 +2,7 @@
 
 namespace CMW\Entity\Calendar;
 
+use CMW\Controller\Core\CoreController;
 use CMW\Entity\Users\UserEntity;
 
 class CalendarEntity
@@ -11,6 +12,9 @@ class CalendarEntity
     private string $name;
     private string $startDate;
     private string $endDate;
+    private string $backgroundColor;
+    private string $borderColor;
+    private string $textColor;
     private UserEntity $author;
 
     /**
@@ -18,14 +22,20 @@ class CalendarEntity
      * @param string $name
      * @param string $startDate
      * @param string $endDate
+     * @param string $backgroundColor
+     * @param string $borderColor
+     * @param string $textColor
      * @param UserEntity $author
      */
-    public function __construct(int $id, string $name, string $startDate, string $endDate, UserEntity $author)
+    public function __construct(int $id, string $name, string $startDate, string $endDate, string $backgroundColor, string $borderColor, string $textColor, UserEntity $author)
     {
         $this->id = $id;
         $this->name = $name;
         $this->startDate = $startDate;
         $this->endDate = $endDate;
+        $this->backgroundColor = $backgroundColor;
+        $this->borderColor = $borderColor;
+        $this->textColor = $textColor;
         $this->author = $author;
     }
 
@@ -50,7 +60,7 @@ class CalendarEntity
      */
     public function getStartDate(): string
     {
-        return $this->startDate;
+        return CoreController::formatDate($this->startDate);
     }
 
     /**
@@ -58,7 +68,31 @@ class CalendarEntity
      */
     public function getEndDate(): string
     {
-        return $this->endDate;
+        return CoreController::formatDate($this->endDate);
+    }
+
+    /**
+     * @return string
+     */
+    public function getBackgroundColor(): string
+    {
+        return $this->backgroundColor;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBorderColor(): string
+    {
+        return $this->borderColor;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTextColor(): string
+    {
+        return $this->textColor;
     }
 
     /**
