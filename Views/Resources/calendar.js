@@ -1,5 +1,5 @@
 const xhr = new XMLHttpRequest();
-xhr.open('GET', '/cmw-admin/calendar/get/calendarData', true);
+xhr.open('GET', '/api/calendar/data', true);
 
 xhr.onload = function () {
     if (xhr.status === 200) {

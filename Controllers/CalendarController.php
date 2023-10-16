@@ -103,15 +103,6 @@ class CalendarController extends AbstractController
         Redirect::redirectPreviousRoute();
     }
 
-    #[Link("/get/calendarData", Link::GET, [], "/cmw-admin/calendar")]
-    public function calendarGetData(): void
-    {
-        $returnData = [];
-        $returnData['events'] = CalendarModel::getInstance()->getJsonEvents(); //is json encoded
-        $returnData['settings'] = CalendarSettingsModel::getInstance()->getSettingsData();
-        echo json_encode($returnData);
-    }
-
     /* //////////////////// FRONT PUBLIC //////////////////// */
 
     #[Link('/calendar', Link::GET)]
