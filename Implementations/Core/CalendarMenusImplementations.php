@@ -1,16 +1,16 @@
 <?php
 
-namespace CMW\Implementation\Calendar;
+namespace CMW\Implementation\Calendar\Core;
 
 use CMW\Interface\Core\IMenus;
-use CMW\Manager\Lang\LangManager;
 
-class CalendarMenusImplementations implements IMenus {
+class CalendarMenusImplementations implements IMenus
+{
 
     public function getRoutes(): array
     {
         return [
-            "Calendrier" => 'calendar'
+            "Calendrier" => 'calendar',
         ];
     }
 
