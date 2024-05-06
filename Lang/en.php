@@ -27,17 +27,24 @@ return [
         "dayMaxEventRows" => "Max event per view",
         "dayMaxEventRowsTooltip" => "his only impacts the month view. A value of -1 disables this setting",
         "height" => "Height (px)",
-        "deleteTitle" => "Delete an event"
+        "deleteTitle" => "Delete an event",
     ],
     "discord" => [
         "desc" => "This event will take place on ",
-        "newEvent" => " - New event!"
+        "newEvent" => " - New event!",
     ],
     "flash" => [
         "title" => "Calendar",
         "eventAdded" => "Events added!",
         "eventDeleted" => "This event no longer exists",
-        "settingApply" => "Settings applied!"
+        "settingApply" => "Settings applied!",
     ],
-
+    "permissions" => [
+        "calendar" => [
+            "show" => "Show calendar",
+            "edit" => "Edit calendar",
+            "create" => "Create calendar",
+            "delete" => "Delete calendar",
+        ],
+    ],
 ];

@@ -27,17 +27,24 @@ return [
         "dayMaxEventRows" => "Max event par vue",
         "dayMaxEventRowsTooltip" => "Ceci n'impacte que la vue par mois. Une valeur de -1 désactive ce paramètre",
         "height" => "Hauteur (px)",
-        "deleteTitle" => "Supprimer un événement"
+        "deleteTitle" => "Supprimer un événement",
     ],
     "discord" => [
         "desc" => "Cet événement aura lieu le ",
-        "newEvent" => " - Nouvel événement !"
+        "newEvent" => " - Nouvel événement !",
     ],
     "flash" => [
         "title" => "Calendrier",
         "eventAdded" => "Événements ajouté !",
         "eventDeleted" => "Cette événement n'existe plus",
-        "settingApply" => "Paramètres appliqué !"
+        "settingApply" => "Paramètres appliqué !",
     ],
-
+    "permissions" => [
+        "calendar" => [
+            "show" => "Afficher le calendrier",
+            "edit" => "Modifier le calendrier",
+            "create" => "Créer un calendrier",
+            "delete" => "Supprimer un calendrier",
+        ],
+    ],
 ];
