@@ -4,7 +4,6 @@ namespace CMW\Package\Calendar;
 
 use CMW\Manager\Package\IPackageConfig;
 use CMW\Manager\Package\PackageMenuType;
-use CMW\Manager\Package\PackageSubMenuType;
 
 class Package implements IPackageConfig
 {
@@ -58,5 +57,11 @@ class Package implements IPackageConfig
     public function requiredPackages(): array
     {
         return ["Core"];
+    }
+
+    public function uninstall(): bool
+    {
+        //Return true, we don't need other operations for uninstall.
+        return true;
     }
 }
