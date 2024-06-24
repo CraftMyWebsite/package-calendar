@@ -16,12 +16,12 @@ class Permissions implements IPermissionInit
                 description: LangManager::translate('calendar.permissions.calendar.show'),
             ),
             new PermissionInitType(
-                code: 'calendar.edit',
-                description: LangManager::translate('calendar.permissions.calendar.edit'),
-            ),
-            new PermissionInitType(
                 code: 'calendar.create',
                 description: LangManager::translate('calendar.permissions.calendar.create'),
+            ),
+            new PermissionInitType(
+                code: 'calendar.edit',
+                description: LangManager::translate('calendar.permissions.calendar.edit'),
             ),
             new PermissionInitType(
                 code: 'calendar.delete',
