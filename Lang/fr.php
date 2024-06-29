@@ -5,9 +5,9 @@ return [
     "description" => "Gérez les événements du calendrier",
     "manage" => [
         "title" => "Gestion du calendrier",
-        "addButton" => "Ajouter un événement",
-        "removeButton" => "Supprimer un événement",
-        "settingsButton" => "Paramètres du calendrier",
+        "addButton" => "Ajouter",
+        "removeButton" => "Supprimer",
+        "settingsButton" => "Paramètres",
         "addTitle" => "Ajouter un événement",
         "name" => "Nom",
         "start" => "Début",
@@ -41,10 +41,10 @@ return [
     ],
     "permissions" => [
         "calendar" => [
-            "show" => "Afficher le calendrier",
-            "edit" => "Modifier le calendrier",
-            "create" => "Créer un calendrier",
-            "delete" => "Supprimer un calendrier",
+            "show" => "Afficher",
+            "edit" => "Modifier",
+            "create" => "Créer",
+            "delete" => "Supprimer",
         ],
     ],
 ];

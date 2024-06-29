@@ -5,9 +5,9 @@ return [
     "description" => "Manage calendar events",
     "manage" => [
         "title" => "Calendar management",
-        "addButton" => "Add event",
-        "removeButton" => "Remove an event",
-        "settingsButton" => "Calendar Settings",
+        "addButton" => "Add",
+        "removeButton" => "Remove",
+        "settingsButton" => "Settings",
         "addTitle" => "Add event",
         "name" => "Name",
         "start" => "Start",
@@ -41,10 +41,10 @@ return [
     ],
     "permissions" => [
         "calendar" => [
-            "show" => "Show calendar",
-            "edit" => "Edit calendar",
-            "create" => "Create calendar",
-            "delete" => "Delete calendar",
+            "show" => "Show",
+            "edit" => "Edit",
+            "create" => "Create",
+            "delete" => "Delete",
         ],
     ],
 ];
