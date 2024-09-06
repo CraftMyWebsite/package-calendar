@@ -15,11 +15,11 @@ use CMW\Model\Calendar\CalendarSettingsModel;
  */
 class CalendarAPIController extends AbstractController
 {
-    #[Link("/data", Link::GET, [], "/api/calendar")]
+    #[Link('/data', Link::GET, [], '/api/calendar')]
     public function calendarGetData(): void
     {
         $returnData = [];
-        $returnData['events'] = CalendarModel::getInstance()->getJsonEvents(); //is json encoded
+        $returnData['events'] = CalendarModel::getInstance()->getJsonEvents();  // is json encoded
         $returnData['settings'] = CalendarSettingsModel::getInstance()->getSettingsData();
         echo json_encode($returnData);
     }

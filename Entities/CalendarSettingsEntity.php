@@ -2,7 +2,6 @@
 
 namespace CMW\Entity\Calendar;
 
-
 use CMW\Controller\Core\CoreController;
 
 class CalendarSettingsEntity
@@ -27,8 +26,8 @@ class CalendarSettingsEntity
      * @param bool $calendar_settings_updated
      */
     public function __construct(?string $calendar_settings_webhook_new_event, bool $calendar_settings_use_webhook_new_event, ?string $calendar_settings_locale,
-                                int $calendar_settings_dayMaxEventRows, int $calendar_settings_height, bool $calendar_settings_use_nowIndicator, ?string $calendar_settings_initialView,
-                                bool $calendar_settings_updated)
+        int $calendar_settings_dayMaxEventRows, int $calendar_settings_height, bool $calendar_settings_use_nowIndicator, ?string $calendar_settings_initialView,
+        bool $calendar_settings_updated)
     {
         $this->calendar_settings_webhook_new_event = $calendar_settings_webhook_new_event;
         $this->calendar_settings_use_webhook_new_event = $calendar_settings_use_webhook_new_event;
@@ -103,5 +102,4 @@ class CalendarSettingsEntity
     {
         return CoreController::formatDate($this->calendar_settings_updated);
     }
-
 }

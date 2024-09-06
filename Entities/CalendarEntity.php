@@ -7,7 +7,6 @@ use CMW\Entity\Users\UserEntity;
 
 class CalendarEntity
 {
-
     private int $id;
     private string $name;
     private string $startDate;
@@ -102,5 +101,4 @@ class CalendarEntity
     {
         return $this->author;
     }
-
 }

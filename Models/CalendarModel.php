@@ -4,7 +4,6 @@ namespace CMW\Model\Calendar;
 
 use CMW\Entity\Calendar\CalendarEntity;
 use CMW\Manager\Database\DatabaseManager;
-
 use CMW\Manager\Package\AbstractModel;
 use CMW\Model\Users\UsersModel;
 
@@ -21,7 +20,7 @@ class CalendarModel extends AbstractModel
      */
     public function getEvents(): array
     {
-        $sql = "SELECT calendar_id FROM cmw_calendar";
+        $sql = 'SELECT calendar_id FROM cmw_calendar';
         $db = DatabaseManager::getInstance();
 
         $res = $db->prepare($sql);
@@ -33,7 +32,7 @@ class CalendarModel extends AbstractModel
         $toReturn = array();
 
         while ($event = $res->fetch()) {
-            $toReturn[] = $this->getEventsById($event["calendar_id"]);
+            $toReturn[] = $this->getEventsById($event['calendar_id']);
         }
 
         return $toReturn;
@@ -44,7 +43,7 @@ class CalendarModel extends AbstractModel
      */
     public function getJsonEvents(): string
     {
-        $sql = "SELECT calendar_name AS title, calendar_startDate AS start, calendar_endDate AS end, calendar_backgroundColor AS backgroundColor, calendar_borderColor AS borderColor, calendar_textColor AS textColor FROM cmw_calendar";
+        $sql = 'SELECT calendar_name AS title, calendar_startDate AS start, calendar_endDate AS end, calendar_backgroundColor AS backgroundColor, calendar_borderColor AS borderColor, calendar_textColor AS textColor FROM cmw_calendar';
         $db = DatabaseManager::getInstance();
 
         $res = $db->prepare($sql);
@@ -60,20 +59,18 @@ class CalendarModel extends AbstractModel
      */
     public function getEventsById($calendarId): ?CalendarEntity
     {
-
-        $sql = "SELECT * FROM cmw_calendar WHERE calendar_id=:calendar_id";
+        $sql = 'SELECT * FROM cmw_calendar WHERE calendar_id=:calendar_id';
 
         $db = DatabaseManager::getInstance();
         $res = $db->prepare($sql);
 
-
-        if (!$res->execute(array("calendar_id" => $calendarId))) {
+        if (!$res->execute(array('calendar_id' => $calendarId))) {
             return null;
         }
 
         $res = $res->fetch();
 
-        $user = UsersModel::getInstance()->getUserById($res["user_id"]);
+        $user = UsersModel::getInstance()->getUserById($res['user_id']);
 
         return new CalendarEntity(
             $res['calendar_id'],
@@ -109,7 +106,7 @@ class CalendarModel extends AbstractModel
             'author' => $author
         );
 
-        $sql = "INSERT INTO cmw_calendar (calendar_name, calendar_startDate, calendar_endDate,calendar_backgroundColor, calendar_borderColor, calendar_textColor, user_id) VALUES (:name, :startDate, :endDate, :backgroundColor, :borderColor, :textColor, :author)";
+        $sql = 'INSERT INTO cmw_calendar (calendar_name, calendar_startDate, calendar_endDate,calendar_backgroundColor, calendar_borderColor, calendar_textColor, user_id) VALUES (:name, :startDate, :endDate, :backgroundColor, :borderColor, :textColor, :author)';
 
         $db = DatabaseManager::getInstance();
         $req = $db->prepare($sql);
@@ -127,10 +124,9 @@ class CalendarModel extends AbstractModel
      */
     public function deleteEvent(int $enventId): void
     {
-        $sql = "DELETE FROM cmw_calendar WHERE calendar_id = :id";
+        $sql = 'DELETE FROM cmw_calendar WHERE calendar_id = :id';
         $db = DatabaseManager::getInstance();
         $req = $db->prepare($sql);
-        $req->execute(array("id" => $enventId));
+        $req->execute(array('id' => $enventId));
     }
-
 }

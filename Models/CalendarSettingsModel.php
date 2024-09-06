@@ -7,8 +7,6 @@ use CMW\Entity\Support\SupportSettingEntity;
 use CMW\Manager\Database\DatabaseManager;
 use CMW\Manager\Package\AbstractModel;
 
-
-
 /**
  * Class @CalendarSettingsModel
  * @package Calendar
@@ -19,11 +17,10 @@ class CalendarSettingsModel extends AbstractModel
 {
     public function getConfig(): ?CalendarSettingsEntity
     {
-        $sql = "SELECT * FROM cmw_calendar_settings LIMIT 1";
+        $sql = 'SELECT * FROM cmw_calendar_settings LIMIT 1';
 
         $db = DatabaseManager::getInstance();
         $res = $db->prepare($sql);
-
 
         if (!$res->execute()) {
             return null;
@@ -43,19 +40,19 @@ class CalendarSettingsModel extends AbstractModel
         );
     }
 
-    public function updateConfig(?string $calendar_settings_webhook_new_event,int $calendar_settings_use_webhook_new_event, ?string $calendar_settings_locale,int $calendar_settings_dayMaxEventRows,int $calendar_settings_height, int $calendar_settings_use_nowIndicator,?string $calendar_settings_initialView): ?CalendarSettingsEntity
+    public function updateConfig(?string $calendar_settings_webhook_new_event, int $calendar_settings_use_webhook_new_event, ?string $calendar_settings_locale, int $calendar_settings_dayMaxEventRows, int $calendar_settings_height, int $calendar_settings_use_nowIndicator, ?string $calendar_settings_initialView): ?CalendarSettingsEntity
     {
         $info = array(
-            "calendar_settings_webhook_new_event" => $calendar_settings_webhook_new_event,
-            "calendar_settings_use_webhook_new_event" => $calendar_settings_use_webhook_new_event,
-            "calendar_settings_locale" => $calendar_settings_locale,
-            "calendar_settings_dayMaxEventRows" => $calendar_settings_dayMaxEventRows,
-            "calendar_settings_height" => $calendar_settings_height,
-            "calendar_settings_use_nowIndicator" => $calendar_settings_use_nowIndicator,
-            "calendar_settings_initialView" => $calendar_settings_initialView,
+            'calendar_settings_webhook_new_event' => $calendar_settings_webhook_new_event,
+            'calendar_settings_use_webhook_new_event' => $calendar_settings_use_webhook_new_event,
+            'calendar_settings_locale' => $calendar_settings_locale,
+            'calendar_settings_dayMaxEventRows' => $calendar_settings_dayMaxEventRows,
+            'calendar_settings_height' => $calendar_settings_height,
+            'calendar_settings_use_nowIndicator' => $calendar_settings_use_nowIndicator,
+            'calendar_settings_initialView' => $calendar_settings_initialView,
         );
 
-        $sql = "UPDATE cmw_calendar_settings SET calendar_settings_webhook_new_event = :calendar_settings_webhook_new_event,calendar_settings_use_webhook_new_event = :calendar_settings_use_webhook_new_event, calendar_settings_locale= :calendar_settings_locale, calendar_settings_dayMaxEventRows= :calendar_settings_dayMaxEventRows, calendar_settings_height= :calendar_settings_height,calendar_settings_use_nowIndicator= :calendar_settings_use_nowIndicator,calendar_settings_initialView= :calendar_settings_initialView";
+        $sql = 'UPDATE cmw_calendar_settings SET calendar_settings_webhook_new_event = :calendar_settings_webhook_new_event,calendar_settings_use_webhook_new_event = :calendar_settings_use_webhook_new_event, calendar_settings_locale= :calendar_settings_locale, calendar_settings_dayMaxEventRows= :calendar_settings_dayMaxEventRows, calendar_settings_height= :calendar_settings_height,calendar_settings_use_nowIndicator= :calendar_settings_use_nowIndicator,calendar_settings_initialView= :calendar_settings_initialView';
 
         $db = DatabaseManager::getInstance();
         $req = $db->prepare($sql);
@@ -71,7 +68,7 @@ class CalendarSettingsModel extends AbstractModel
      */
     public function getSettingsData(): string
     {
-        $sql = "SELECT calendar_settings_locale AS locale, calendar_settings_dayMaxEventRows AS dayMaxEventRows, calendar_settings_height AS height, calendar_settings_use_nowIndicator AS useNowIndicator, calendar_settings_initialView AS initialView FROM cmw_calendar_settings";
+        $sql = 'SELECT calendar_settings_locale AS locale, calendar_settings_dayMaxEventRows AS dayMaxEventRows, calendar_settings_height AS height, calendar_settings_use_nowIndicator AS useNowIndicator, calendar_settings_initialView AS initialView FROM cmw_calendar_settings';
         $db = DatabaseManager::getInstance();
 
         $res = $db->prepare($sql);
