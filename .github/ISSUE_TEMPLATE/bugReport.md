@@ -1,5 +1,5 @@
 ---
-name: [BUG] - Report a bug
+name: [BUG] Report a bug
 about: Report a problem with a clear and detailed description. Include steps to reproduce, expected results, and the environment used. Be as specific as possible to facilitate resolution.
 title: "[BUG] - "
 labels: 'bug'
