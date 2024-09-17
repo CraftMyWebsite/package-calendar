@@ -9,7 +9,7 @@ assignees: ''
 # 🐞️ Bug report
 
 ## Environment
-- CMS Version: `x`
+- CMW Version: `x`
 - Resource Version: `x`
 - PHP Version: `x`
 - Browser: `Chrome/Firefox/Safari/Brave...`

@@ -2,11 +2,12 @@
 name: FEATURE REQUESTS
 about: Propose a new feature. Clearly describe the need, the proposed solution, and its potential impact on the project.
 title: "[FEATURE REQUESTS] - "
-labels: 'feature'
+labels: 'enhancement'
 assignees: ''
 
 ---
 # 🛠️ Feature requests
+
 ## Feature Description
 
 Please provide a clear and concise description of the feature you are proposing. What does this feature do, and why is it important?
