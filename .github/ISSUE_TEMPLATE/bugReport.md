@@ -6,10 +6,12 @@ labels: 'bug'
 assignees: ''
 
 ---
+# 🐞️ Bug report
+
 ## Environment
-- CMS Version: `x.x.x`
-- Resource Version: `x.x.x`
-- PHP Version: `8.3`
+- CMS Version: `x`
+- Resource Version: `x`
+- PHP Version: `x`
 - Browser: `Chrome/Firefox/Safari/Brave...`
 - Device Type: `Desktop/Mobile/Tablet`
 
@@ -38,3 +40,6 @@ paste here
 
 ## Additional Information
 Add any other useful details.
+
+---
+**Priority:** Low / Medium / High 
