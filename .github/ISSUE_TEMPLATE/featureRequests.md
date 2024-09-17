@@ -1,6 +1,6 @@
 ---
 name: FEATURE REQUESTS
-about: Submit an idea for a new feature or enhancement. Clearly describe the request or need, the proposed solution, and its potential impact on the project. Provide as much detail as possible to facilitate evaluation.
+about: Propose a new feature. Clearly describe the need, the proposed solution, and its potential impact on the project.
 title: "[FEATURE REQUESTS] - "
 labels: 'feature'
 assignees: ''
