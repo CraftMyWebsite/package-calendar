@@ -10,7 +10,7 @@ use CMW\Manager\Lang\LangManager;
 use CMW\Manager\Package\AbstractController;
 use CMW\Manager\Router\Link;
 use CMW\Manager\Views\View;
-use CMW\Manager\Webhook\DiscordWebhook;
+use CMW\Manager\Webhook\Discord\DiscordWebhook;
 use CMW\Model\Calendar\CalendarModel;
 use CMW\Model\Calendar\CalendarSettingsModel;
 use CMW\Model\Users\UsersModel;
