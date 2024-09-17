@@ -40,6 +40,3 @@ paste here
 
 ## Additional Information
 Add any other useful details.
-
----
-**Priority:** Low / Medium / High 
