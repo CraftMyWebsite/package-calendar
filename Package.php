@@ -2,6 +2,7 @@
 
 namespace CMW\Package\Calendar;
 
+use CMW\Manager\Lang\LangManager;
 use CMW\Manager\Package\IPackageConfig;
 use CMW\Manager\Package\PackageMenuType;
 
@@ -36,17 +37,8 @@ class Package implements IPackageConfig
     {
         return [
             new PackageMenuType(
-                lang: 'fr',
                 icon: 'fas fa-calendar-days',
-                title: 'Calendrier',
-                url: 'calendar/manage',
-                permission: 'calendar.show',
-                subMenus: []
-            ),
-            new PackageMenuType(
-                lang: 'en',
-                icon: 'fas fa-calendar-days',
-                title: 'Calendar',
+                title: LangManager::translate('calendar.title'),
                 url: 'calendar/manage',
                 permission: 'calendar.show',
                 subMenus: []
