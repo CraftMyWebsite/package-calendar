@@ -29,7 +29,7 @@ class CalendarController extends AbstractController
 {
     #[Link(path: '/', method: Link::GET, scope: '/cmw-admin/calendar')]
     #[Link('/manage', Link::GET, [], '/cmw-admin/calendar')]
-    public function calendarManage(): void
+    private function calendarManage(): void
     {
         UsersController::redirectIfNotHavePermissions('core.dashboard', 'calendar.show');
 
@@ -44,7 +44,7 @@ class CalendarController extends AbstractController
 
     #[NoReturn]
     #[Link('/manage', Link::POST, [], '/cmw-admin/calendar')]
-    public function calendarPostEvent(): void
+    private function calendarPostEvent(): void
     {
         UsersController::redirectIfNotHavePermissions('calendar.edit');
 
@@ -109,7 +109,7 @@ class CalendarController extends AbstractController
     /* //////////////////// FRONT PUBLIC //////////////////// */
 
     #[Link('/calendar', Link::GET)]
-    public function publicCalendar(): void
+    private function publicCalendar(): void
     {
         $view = new View('Calendar', 'main');
         $view->addScriptBefore('App/Package/Calendar/Views/Resources/fullcalendar.js', 'App/Package/Calendar/Views/Resources/calendar.js');

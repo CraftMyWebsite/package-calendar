@@ -16,7 +16,7 @@ use CMW\Model\Calendar\CalendarSettingsModel;
 class CalendarAPIController extends AbstractController
 {
     #[Link('/data', Link::GET, [], '/api/calendar')]
-    public function calendarGetData(): void
+    private function calendarGetData(): void
     {
         $returnData = [];
         $returnData['events'] = CalendarModel::getInstance()->getJsonEvents();  // is json encoded
