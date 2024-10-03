@@ -2,8 +2,8 @@
 
 namespace CMW\Entity\Calendar;
 
-use CMW\Controller\Core\CoreController;
 use CMW\Entity\Users\UserEntity;
+use CMW\Utils\Date;
 
 class CalendarEntity
 {
@@ -59,7 +59,7 @@ class CalendarEntity
      */
     public function getStartDate(): string
     {
-        return CoreController::formatDate($this->startDate);
+        return Date::formatDate($this->startDate);
     }
 
     /**
@@ -67,7 +67,7 @@ class CalendarEntity
      */
     public function getEndDate(): string
     {
-        return CoreController::formatDate($this->endDate);
+        return Date::formatDate($this->endDate);
     }
 
     /**

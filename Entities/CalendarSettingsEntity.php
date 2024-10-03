@@ -2,7 +2,8 @@
 
 namespace CMW\Entity\Calendar;
 
-use CMW\Controller\Core\CoreController;
+
+use CMW\Utils\Date;
 
 class CalendarSettingsEntity
 {
@@ -100,6 +101,6 @@ class CalendarSettingsEntity
      */
     public function getUpdated(): string
     {
-        return CoreController::formatDate($this->calendar_settings_updated);
+        return Date::formatDate($this->calendar_settings_updated);
     }
 }
