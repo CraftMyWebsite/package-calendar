@@ -38,6 +38,7 @@ return [
         'eventAdded' => 'Events added!',
         'eventDeleted' => 'This event no longer exists',
         'settingApply' => 'Settings applied!',
+        'eventError' => 'Unable to add event',
     ],
     'permissions' => [
         'calendar' => [

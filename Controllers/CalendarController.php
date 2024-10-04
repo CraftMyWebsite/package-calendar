@@ -4,6 +4,9 @@ namespace CMW\Controller\Calendar;
 
 use CMW\Controller\users\UsersController;
 
+use CMW\Event\Calendar\CreateEvent;
+use CMW\Event\Calendar\DeleteEvent;
+use CMW\Manager\Events\Emitter;
 use CMW\Manager\Flash\Alert;
 use CMW\Manager\Flash\Flash;
 use CMW\Manager\Lang\LangManager;
@@ -42,6 +45,10 @@ class CalendarController extends AbstractController
             ->view();
     }
 
+    /**
+     * @throws \ReflectionException
+     * @throws \JsonException
+     */
     #[NoReturn]
     #[Link('/manage', Link::POST, [], '/cmw-admin/calendar')]
     private function calendarPostEvent(): void
@@ -55,26 +62,35 @@ class CalendarController extends AbstractController
 
         $calendar = CalendarModel::getInstance()->createEvent($name, $startDate, $endDate, $backgroundColor, $borderColor, $textColor, $userId);
 
-        if ($config->getUseWebhookNewEvent()) {
-            DiscordWebhook::createWebhook($config->getWebhookNewEvent())
-                ->setImageUrl(null)
-                ->setTts(false)
-                ->setTitle($calendar->getName())
-                ->setTitleLink(Website::getUrl() . 'calendar')
-                ->setDescription(LangManager::translate('calendar.discord.desc') . $calendar->getStartDate())
-                ->setColor('35AFD9')
-                ->setFooterText(Website::getWebsiteName())
-                ->setFooterIconUrl(null)
-                ->setAuthorName(Website::getWebsiteName() . LangManager::translate('calendar.discord.newEvent'))
-                ->setAuthorUrl(null)
-                ->send();
+        if ($calendar) {
+            Emitter::send(CreateEvent::class, $calendar);
+            if ($config->getUseWebhookNewEvent()) {
+                DiscordWebhook::createWebhook($config->getWebhookNewEvent())
+                    ->setImageUrl(null)
+                    ->setTts(false)
+                    ->setTitle($calendar->getName())
+                    ->setTitleLink(Website::getUrl() . 'calendar')
+                    ->setDescription(LangManager::translate('calendar.discord.desc') . $calendar->getStartDate())
+                    ->setColor('35AFD9')
+                    ->setFooterText(Website::getWebsiteName())
+                    ->setFooterIconUrl(null)
+                    ->setAuthorName(Website::getWebsiteName() . LangManager::translate('calendar.discord.newEvent'))
+                    ->setAuthorUrl(null)
+                    ->send();
+            }
+
+            Flash::send(Alert::SUCCESS, LangManager::translate('calendar.flash.title'), LangManager::translate('calendar.flash.eventAdded'));
+        } else {
+            Flash::send(Alert::ERROR, LangManager::translate('calendar.flash.title'), LangManager::translate('calendar.flash.eventError') );
         }
 
-        Flash::send(Alert::SUCCESS, LangManager::translate('calendar.flash.title'), LangManager::translate('calendar.flash.eventAdded'));
 
         Redirect::redirectPreviousRoute();
     }
 
+    /**
+     * @throws \ReflectionException
+     */
     #[NoReturn]
     #[Link('/manage/delete', Link::POST, [], '/cmw-admin/calendar')]
     private function calendarDeleteEvent(): void
@@ -84,6 +100,8 @@ class CalendarController extends AbstractController
         [$event] = Utils::filterInput('event');
 
         CalendarModel::getInstance()->deleteEvent($event);
+
+        Emitter::send(DeleteEvent::class, $event);
 
         Flash::send(Alert::SUCCESS, LangManager::translate('calendar.flash.title'), LangManager::translate('calendar.flash.eventDeleted'));
 

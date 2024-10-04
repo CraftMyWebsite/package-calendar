@@ -38,6 +38,7 @@ return [
         'eventAdded' => 'Événements ajouté !',
         'eventDeleted' => "Cette événement n'existe plus",
         'settingApply' => 'Paramètres appliqué !',
+        'eventError' => 'Impossible d\'ajouter l\'événement',
     ],
     'permissions' => [
         'calendar' => [
