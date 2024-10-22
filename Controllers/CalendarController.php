@@ -129,8 +129,8 @@ class CalendarController extends AbstractController
     #[Link('/calendar', Link::GET)]
     private function publicCalendar(): void
     {
-        $view = new View('Calendar', 'main');
-        $view->addScriptBefore('App/Package/Calendar/Views/Resources/fullcalendar.js', 'App/Package/Calendar/Views/Resources/calendar.js');
-        $view->view();
+        View::createPublicView('Calendar', 'main')
+            ->addScriptBefore('App/Package/Calendar/Views/Resources/fullcalendar.js', 'App/Package/Calendar/Views/Resources/calendar.js')
+            ->view();
     }
 }
