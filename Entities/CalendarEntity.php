@@ -3,9 +3,10 @@
 namespace CMW\Entity\Calendar;
 
 use CMW\Entity\Users\UserEntity;
+use CMW\Manager\Package\AbstractEntity;
 use CMW\Utils\Date;
 
-class CalendarEntity
+class CalendarEntity extends AbstractEntity
 {
     private int $id;
     private string $name;

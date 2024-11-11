@@ -3,9 +3,10 @@
 namespace CMW\Entity\Calendar;
 
 
+use CMW\Manager\Package\AbstractEntity;
 use CMW\Utils\Date;
 
-class CalendarSettingsEntity
+class CalendarSettingsEntity extends AbstractEntity
 {
     private ?string $calendar_settings_webhook_new_event;
     private bool $calendar_settings_use_webhook_new_event;
@@ -27,8 +28,8 @@ class CalendarSettingsEntity
      * @param bool $calendar_settings_updated
      */
     public function __construct(?string $calendar_settings_webhook_new_event, bool $calendar_settings_use_webhook_new_event, ?string $calendar_settings_locale,
-        int $calendar_settings_dayMaxEventRows, int $calendar_settings_height, bool $calendar_settings_use_nowIndicator, ?string $calendar_settings_initialView,
-        bool $calendar_settings_updated)
+                                int     $calendar_settings_dayMaxEventRows, int $calendar_settings_height, bool $calendar_settings_use_nowIndicator, ?string $calendar_settings_initialView,
+                                bool    $calendar_settings_updated)
     {
         $this->calendar_settings_webhook_new_event = $calendar_settings_webhook_new_event;
         $this->calendar_settings_use_webhook_new_event = $calendar_settings_use_webhook_new_event;
