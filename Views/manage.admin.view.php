@@ -30,7 +30,7 @@ $description = LangManager::translate('calendar.description');
             <button type="button" data-modal-hide="modal-add"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <form method="post">
-            <?php (new SecurityManager())->insertHiddenToken() ?>
+            <?php SecurityManager::getInstance()->insertHiddenToken() ?>
         <div class="modal-body">
             <label for="name"><?= LangManager::translate('calendar.manage.name'); ?> :</label>
             <div class="input-group">
@@ -76,7 +76,7 @@ $description = LangManager::translate('calendar.description');
             <button type="button" data-modal-hide="modal-settings"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <form action="manage/applySettings" method="post">
-            <?php (new SecurityManager())->insertHiddenToken() ?>
+            <?php SecurityManager::getInstance()->insertHiddenToken() ?>
         <div class="modal-body">
             <div>
                 <label class="toggle">
@@ -137,7 +137,7 @@ $description = LangManager::translate('calendar.description');
             <button type="button" data-modal-hide="modal-remove"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <form action="manage/delete" method="post">
-            <?php (new SecurityManager())->insertHiddenToken() ?>
+            <?php SecurityManager::getInstance()->insertHiddenToken() ?>
         <div class="modal-body">
             <select name="event" required>
                 <?php foreach ($events as $event): ?>
