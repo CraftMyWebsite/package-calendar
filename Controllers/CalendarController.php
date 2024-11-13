@@ -4,6 +4,7 @@ namespace CMW\Controller\Calendar;
 
 use CMW\Controller\users\UsersController;
 
+use CMW\Controller\Users\UsersSessionsController;
 use CMW\Event\Calendar\CreateEvent;
 use CMW\Event\Calendar\DeleteEvent;
 use CMW\Manager\Events\Emitter;
@@ -16,7 +17,6 @@ use CMW\Manager\Views\View;
 use CMW\Manager\Webhook\Discord\DiscordWebhook;
 use CMW\Model\Calendar\CalendarModel;
 use CMW\Model\Calendar\CalendarSettingsModel;
-use CMW\Model\Users\UsersModel;
 use CMW\Utils\Redirect;
 use CMW\Utils\Utils;
 use CMW\Utils\Website;
@@ -58,7 +58,7 @@ class CalendarController extends AbstractController
         $config = CalendarSettingsModel::getInstance()->getConfig();
 
         [$name, $startDate, $endDate, $backgroundColor, $borderColor, $textColor] = Utils::filterInput('name', 'startDate', 'endDate', 'backgroundColor', 'borderColor', 'textColor');
-        $userId = UsersModel::getCurrentUser()?->getId();
+        $userId = UsersSessionsController::getInstance()->getCurrentUser()?->getId();
 
         $calendar = CalendarModel::getInstance()->createEvent($name, $startDate, $endDate, $backgroundColor, $borderColor, $textColor, $userId);
 
