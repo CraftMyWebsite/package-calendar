@@ -40,8 +40,7 @@ class Package implements IPackageConfig
                 icon: 'fas fa-calendar-days',
                 title: LangManager::translate('calendar.title'),
                 url: 'calendar/manage',
-                permission: 'calendar.show',
-                subMenus: []
+                permission: 'calendar.show'
             ),
         ];
     }
