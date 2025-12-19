@@ -3,10 +3,10 @@
 namespace CMW\Package\Calendar;
 
 use CMW\Manager\Lang\LangManager;
-use CMW\Manager\Package\IPackageConfig;
+use CMW\Manager\Package\IPackageConfigV2;
 use CMW\Manager\Package\PackageMenuType;
 
-class Package implements IPackageConfig
+class Package implements IPackageConfigV2
 {
     public function name(): string
     {
@@ -15,7 +15,17 @@ class Package implements IPackageConfig
 
     public function version(): string
     {
-        return '1.0.0';
+        return '1.0.1';
+    }
+
+    public function cmwVersion(): string
+    {
+        return 'beta-01';
+    }
+
+    public function imageLink(): ?string
+    {
+        return null;
     }
 
     public function authors(): array
@@ -43,6 +53,11 @@ class Package implements IPackageConfig
                 permission: 'calendar.show'
             ),
         ];
+    }
+
+    public function compatiblesPackages(): array
+    {
+        return [];
     }
 
     public function requiredPackages(): array
